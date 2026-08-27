@@ -19,7 +19,7 @@ def register_output_sinks(config: Config) -> Sequence[BaseOutputSink]:
         bootstrap_servers = config.expect_str_list('OSPREY_KAFKA_BOOTSTRAP_SERVERS')
         client_id = config.expect_str('OSPREY_KAFKA_OUTPUT_CLIENT_ID')
         auto_create_topic = config.get_bool('OSPREY_KAFKA_AUTO_CREATE_TOPIC', True)
-        num_partitions = config.get_int('OSPREY_KAFKA_NUM_PARTITIONS', 1)
+        num_partitions = config.get_int('OSPREY_KAFKA_NUM_PARTITIONS', 3)
         replication_factor = config.get_int('OSPREY_KAFKA_REPLICATION_FACTOR', 1)
         sinks.append(
             KafkaOutputSink(
